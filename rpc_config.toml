@@ -1,5 +1,9 @@
 [rpc]
 
+# this is the config file for Geometry Dash RPC
+# in each string, if specified, you can write name of the attribute to display
+# for that you would use curly brackets {...}, like {name}
+
 # general RPC setup
 
 process_name = "default"
@@ -34,7 +38,7 @@ state = "{level_name} ({object_count} objects)"
 # - level_stars
 # - level_type (see rpc.level_type)
 
-details = "{level_name} ({level_type}) <{gamemode}> [attempt {attempt}]"
+details = "{level_name} (attempt {attempt}) <{gamemode}> [{level_type}]"
 state = "by {level_creator} ({mode} {percent}%, best {best_normal}%/{best_practice}%)"
 small_text = "{level_stars}* {level_difficulty} (ID: {level_id})"
 
@@ -78,14 +82,13 @@ extreme_demon = "Extreme Demon"
 
 # these are used to display gamemodes
 
-unknown = "Unknown"
-cube = "Cube"
-ship = "Ship"
-ball = "Ball"
-ufo = "UFO"
-wave = "Wave"
-robot = "Robot"
-spider = "Spider"
+cube = "cube"
+ship = "ship"
+ball = "ball"
+ufo = "ufo"
+wave = "wave"
+robot = "robot"
+spider = "spider"
 
 [rpc.level_type]
 

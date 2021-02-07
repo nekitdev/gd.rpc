@@ -34,7 +34,7 @@ setup(
     version=version,
     packages=["gd"],
     license="MIT",
-    description="Geometry Dash Discord Rich Presence",
+    description="Geometry Dash Discord Rich Presence.",
     long_description=readme,
     long_description_content_type="text/x-rst",
     include_package_data=True,

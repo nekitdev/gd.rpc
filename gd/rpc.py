@@ -1,6 +1,6 @@
 __title__ = "rpc"
 __author__ = "nekitdev"
-__copyright__ = "Copyright 2020 nekitdev"
+__copyright__ = "Copyright 2020-2021 nekitdev"
 __license__ = "MIT"
 __version__ = "1.0.0rc1"
 
@@ -25,7 +25,7 @@ details = "Editing level"
 state = "{level_name} ({object_count} objects)"
 
 [rpc.level]
-details = "{level_name} ({level_type}) <{gamemode}> [attempt {attempt}]"
+details = "{level_name} (attempt {attempt}) <{gamemode}> [{level_type}]"
 state = "by {level_creator} ({mode} {percent}%, best {best_normal}%/{best_practice}%)"
 small_text = "{level_stars}* {level_difficulty} (ID: {level_id})"
 percent_precision = 1
@@ -56,13 +56,13 @@ insane_demon = "Insane Demon"
 extreme_demon = "Extreme Demon"
 
 [rpc.gamemode]
-cube = "Cube"
-ship = "Ship"
-ball = "Ball"
-ufo = "UFO"
-wave = "Wave"
-robot = "Robot"
-spider = "Spider"
+cube = "cube"
+ship = "ship"
+ball = "ball"
+ufo = "ufo"
+wave = "wave"
+robot = "robot"
+spider = "spider"
 
 [rpc.level_type]
 null = "null"
@@ -261,10 +261,9 @@ async def main_loop() -> None:
 
 
 def run() -> None:
-
     print(
-        f"Running gd.rpc v.{__version__}...",
-        f"Root directory: {ROOT}",
+        f"Project gd.rpc v.{__version__} by {__author__}",
+        f"Directory: {ROOT}",
         "Press [Ctrl + C] to stop.",
         sep="\n",
     )
