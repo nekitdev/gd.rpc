@@ -1,0 +1,65 @@
+site_name: gd.rpc
+site_author: nekitdev
+site_description: Geometry Dash Discord Rich Presence.
+
+repo_name: nekitdev/gd.roc
+repo_url: https://github.com/nekitdev/gd.rpc
+
+remote_branch: github-pages
+
+nav:
+  - Index: "index.md"
+  - Config: "config.md"
+  - Changelog: "changelog.md"
+  - Security: "security.md"
+  - Code of Conduct: "code_of_conduct.md"
+  - Contributing: "contributing.md"
+
+watch:
+  - docs
+  - gd
+
+theme:
+  name: material
+  palette:
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+
+      primary: deep purple
+      accent: light blue
+
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to light mode
+
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+
+      primary: deep orange
+      accent: light blue
+
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to dark mode
+
+plugins:
+  - search
+
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            members_order: source
+            show_signature_annotations: true
+
+          paths: [gd]
+
+          import:
+            - https://docs.python.org/3/objects.inv
+            - https://nekitdev.github.io/gd.py/objects.inv
+
+markdown_extensions:
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences

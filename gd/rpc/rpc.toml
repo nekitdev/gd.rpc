@@ -1,0 +1,99 @@
+[rpc]
+
+# this is the configuration file for Geometry Dash RPC
+# in each string, if specified, you can write names of attributes to display;
+# for that you need to use curly brackets {...}, like {name}
+
+# general config
+
+process_name = "default"
+refresh_seconds = 1  # seconds between presence refreshing
+client_id = 704721375050334300  # client ID, change if you are running your own version
+
+[rpc.editor]
+
+# these are used when you are in the editor
+
+# available keys:
+# - name
+# - level_name
+# - object_count
+
+details = "Editing a level"
+state = "{level_name} ({object_count} objects)"
+
+[rpc.level]
+
+# these are used when you are playing a level
+
+# available keys:
+# - name
+# - progress (current)
+# - attempt
+# - mode (see rpc.mode)
+# - level_id
+# - level_name
+# - level_creator_name
+# - level_difficulty (see rpc.difficulty)
+# - level_attempts
+# - level_stars
+# - level_type (see rpc.level_type)
+# - level_normal_record
+# - level_practice_record
+
+details = "{level_name} (attempt {attempt}/{level_attempts})"
+state = "by {level_creator_name} ({mode} {progress}%, best {level_normal_record}%/{level_practice_record}%)"
+small = "{level_stars}* {level_difficulty} (ID: {level_id})"
+
+progress_precision = 1  # decimal places for progress display
+
+[rpc.scene]
+
+# these are used when you are not editing or playing anything
+
+main = "Idle"
+select = "Selecting a level"
+editor_or_level = "Watching level information"
+search = "Searching levels"
+leaderboard = "Browsing leaderboards"
+online = "Online"
+official_select = "Selecting an official level"
+official_level = "Playing an official level"
+
+[rpc.difficulty]
+
+# these are used to display level difficulties
+
+unknown = "N/A"
+auto = "Auto"
+easy = "Easy"
+normal = "Normal"
+hard = "Hard"
+harder = "Harder"
+insane = "Insane"
+demon = "Demon"
+
+# these are used to display demon difficulties
+
+easy_demon = "Easy Demon"
+medium_demon = "Medium Demon"
+hard_demon = "Hard Demon"
+insane_demon = "Insane Demon"
+extreme_demon = "Extreme Demon"
+
+[rpc.level_type]
+
+# these are used to display level types
+
+null = "null"
+official = "official"
+editor = "editor"
+saved = "saved"
+online = "online"
+
+[rpc.mode]
+
+# these are used to display current modes
+
+normal = "normal"
+practice = "practice"
