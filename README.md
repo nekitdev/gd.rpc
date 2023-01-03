@@ -63,6 +63,14 @@ connecting...
 press [ctrl + c] or close the console to exit...
 ```
 
+## Compiling
+
+Compiling an executable version of the `gd.rpc` library:
+
+```console
+$ pyinstaller --onefile --icon gd.rpc.ico --exclude numpy --exclude PIL --exclude IPython --exclude Crypto --exclude lxml --add-data gd/rpc;gd/rpc gd.rpc.py
+```
+
 ## Showcase
 
 The showcase can be found [here][Showcase].
