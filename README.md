@@ -63,6 +63,10 @@ connecting...
 press [ctrl + c] or close the console to exit...
 ```
 
+## Showcase
+
+The showcase can be found [here][Showcase].
+
 ## Documentation
 
 You can find the documentation [here][Documentation].
@@ -94,6 +98,8 @@ If you are interested in contributing to `gd.rpc`, make sure to take a look at t
 [Discord]: https://nekit.dev/discord
 
 [Actions]: https://github.com/nekitdev/gd.rpc/actions
+
+[Showcase]: https://youtube.com/watch?v=-L3SW8MbduQ
 
 [Changelog]: https://github.com/nekitdev/gd.rpc/blob/main/CHANGELOG.md
 [Code of Conduct]: https://github.com/nekitdev/gd.rpc/blob/main/CODE_OF_CONDUCT.md
