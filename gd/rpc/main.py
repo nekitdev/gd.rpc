@@ -2,7 +2,7 @@ from asyncio import set_event_loop
 from time import time
 from typing import Optional
 
-from gd.async_utils import shutdown_loop
+from gd.asyncio import shutdown_loop
 from gd.enums import Difficulty
 from gd.level import Level
 from gd.memory.state import get_state

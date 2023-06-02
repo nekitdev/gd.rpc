@@ -4,12 +4,12 @@ from typing import Any, Optional, Type, TypeVar, cast
 
 import toml
 from attrs import define
+from typing_aliases import IntoPath, StringDict
 from wraps import Option, wrap_optional
 
 from gd.constants import DEFAULT_ENCODING, DEFAULT_ERRORS
 from gd.enums import Difficulty, LevelType, Scene
 from gd.string_utils import case_fold, tick
-from gd.typing import IntoPath, StringDict
 
 __all__ = ("DEFAULT_CONFIG", "CONFIG_NAME", "GD_NAME", "NAME", "Config", "ConfigData", "get_config")
 
@@ -339,7 +339,7 @@ class Config:
             insane_demon=difficulty_data.insane_demon.unwrap_or(difficulty_config.insane_demon),
             extreme_demon=difficulty_data.extreme_demon.unwrap_or(difficulty_config.extreme_demon),
         )
-            
+
         level_type_data = rpc_data.level_type.unwrap_or_else(AnyConfigData)
         level_type_config = default_config.level_type
 
