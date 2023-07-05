@@ -77,23 +77,5 @@ cython_debug/
 
 poetry.lock
 
-# compiled files and executables
-
-debug/
-target/
-
-# backup files
-
-*.rs.bk
-
-# debugging information
-
-*.pdb
-
-# remove lock file for executables
-# leave it in here for libraries
-
-Cargo.lock
-
 # assets
 .gd/
