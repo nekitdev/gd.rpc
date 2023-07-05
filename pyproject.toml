@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "gd.rpc"
-version = "1.0.0"
+version = "1.0.1"
 description = "Geometry Dash Discord Rich Presence."
 authors = ["nekitdev"]
 license = "MIT"
@@ -141,7 +141,7 @@ warn_unused_ignores = false  # compatibility
 
 [tool.changelogging]
 name = "gd.rpc"
-version = "1.0.0"
+version = "1.0.1"
 url = "https://github.com/nekitdev/gd.rpc"
 directory = "changes"
 output = "CHANGELOG.md"
