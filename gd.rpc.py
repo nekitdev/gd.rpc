@@ -1,3 +1,5 @@
-import gd.rpc
+from entrypoint import entrypoint
 
-gd.rpc.main.rpc()
+from gd.rpc.main import rpc
+
+entrypoint(__name__).call(rpc)

@@ -1,5 +1,7 @@
 # `gd.rpc`
 
+![Image]
+
 [![License][License Badge]][License]
 [![Version][Version Badge]][Package]
 [![Downloads][Downloads Badge]][Package]
@@ -68,7 +70,7 @@ press [ctrl + c] or close the console to exit...
 Compiling an executable version of the `gd.rpc` library:
 
 ```console
-$ pyinstaller --onefile --icon gd.rpc.ico --exclude numpy --exclude PIL --exclude IPython --exclude Crypto --exclude lxml --add-data gd/rpc;gd/rpc gd.rpc.py
+$ pyinstaller --onefile --icon assets/gd.rpc.ico --exclude numpy --exclude PIL --exclude IPython --exclude Crypto --exclude lxml --add-data gd/rpc;gd/rpc gd.rpc.py
 ```
 
 ## Showcase
@@ -100,6 +102,8 @@ If you are interested in contributing to `gd.rpc`, make sure to take a look at t
 ## License
 
 `gd.rpc` is licensed under the MIT License terms. See [License][License] for details.
+
+[Image]: https://github.com/nekitdev/gd.rpc/blob/main/assets/gd.rpc.svg?raw=true
 
 [Email]: mailto:support@nekit.dev
 

@@ -2,7 +2,7 @@ site_name: gd.rpc
 site_author: nekitdev
 site_description: Geometry Dash Discord Rich Presence.
 
-repo_name: nekitdev/gd.roc
+repo_name: nekitdev/gd.rpc
 repo_url: https://github.com/nekitdev/gd.rpc
 
 remote_branch: github-pages
