@@ -8,8 +8,8 @@ from gd.level import Level
 from gd.memory.state import get_state
 from gd.string_utils import case_fold
 from gd.tasks import loop
-from toml import TomlDecodeError as TOMLDecodeError
 from pypresence import AioPresence as AsyncPresence  # type: ignore  # no stubs or types
+from toml import TomlDecodeError as TOMLDecodeError
 
 from gd.rpc.config import PATH, get_config
 
@@ -189,7 +189,7 @@ async def update_loop() -> None:
             featured = level_model.is_featured()
             epic = level_model.is_epic()
 
-        if level_type.is_editor():
+        if level_type.is_created():
             level_difficulty = Difficulty.UNKNOWN
             level_creator_name = name
 

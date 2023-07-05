@@ -2,16 +2,15 @@ from builtins import getattr as get_attribute
 from pathlib import Path
 from typing import Any, Optional, Type, TypeVar, cast
 
-import toml
 from attrs import define
-from typing_aliases import IntoPath, StringDict
-from wraps import Option, wrap_optional
-
 from gd.constants import DEFAULT_ENCODING, DEFAULT_ERRORS
 from gd.enums import Difficulty, LevelType, Scene
 from gd.string_utils import case_fold, tick
+from toml import loads as load_string
+from typing_aliases import IntoPath, StringDict
+from wraps import Option, wrap_optional
 
-__all__ = ("DEFAULT_CONFIG", "CONFIG_NAME", "GD_NAME", "NAME", "Config", "ConfigData", "get_config")
+__all__ = ("DEFAULT_CONFIG", "Config", "ConfigData", "get_config", "get_default_config")
 
 HOME = Path.home()
 
@@ -24,11 +23,21 @@ DEFAULT_PATH = Path(__file__).parent / NAME
 PATH = HOME / CONFIG_NAME / GD_NAME / NAME
 
 
+def ensure_path(path: Path, default_path: Path) -> None:
+    if not path.exists():
+        path.parent.mkdir(parents=True, exist_ok=True)
+
+        path.write_bytes(default_path.read_bytes())
+
+
+ensure_path(PATH, DEFAULT_PATH)
+
+
 T = TypeVar("T")
 
 
 class ConfigData(StringDict[T]):
-    """Extension of [`StringDict[T]`][gd.typing.StringDict] that
+    """Extension of [`StringDict[T]`][typing_aliases.typing.StringDict] that
     allows accessing values as attributes.
     """
 
@@ -268,7 +277,7 @@ class Config:
 
     @staticmethod
     def parse(string: str) -> AnyConfigData:
-        return cast(AnyConfigData, toml.loads(string, AnyConfigData))
+        return cast(AnyConfigData, load_string(string, AnyConfigData))
 
     @classmethod
     def from_data(cls: Type[C], config_data: AnyConfigData) -> C:
@@ -304,7 +313,9 @@ class Config:
             details=level_data.details.unwrap_or(level_config.details),
             state=level_data.state.unwrap_or(level_config.state),
             small=level_data.small.unwrap_or(level_config.small),
-            progress_precision=level_data.progress_precision.unwrap_or(level_config.progress_precision),
+            progress_precision=level_data.progress_precision.unwrap_or(
+                level_config.progress_precision
+            ),
         )
 
         scene_data = rpc_data.scene.unwrap_or_else(AnyConfigData)
@@ -435,7 +446,9 @@ class Config:
             medium_demon=difficulty_data.medium_demon.expect(EXPECTED_RPC_DIFFICULTY_MEDIUM_DEMON),
             hard_demon=difficulty_data.hard_demon.expect(EXPECTED_RPC_DIFFICULTY_HARD_DEMON),
             insane_demon=difficulty_data.insane_demon.expect(EXPECTED_RPC_DIFFICULTY_INSANE_DEMON),
-            extreme_demon=difficulty_data.extreme_demon.expect(EXPECTED_RPC_DIFFICULTY_EXTREME_DEMON),
+            extreme_demon=difficulty_data.extreme_demon.expect(
+                EXPECTED_RPC_DIFFICULTY_EXTREME_DEMON
+            ),
         )
 
         level_type_data = rpc_data.level_type.expect(EXPECTED_RPC_LEVEL_TYPE)
@@ -468,18 +481,12 @@ class Config:
         )
 
 
-DEFAULT_CONFIG = Config.unsafe_from_path(DEFAULT_PATH)
+def get_default_config(encoding: str = DEFAULT_ENCODING, errors: str = DEFAULT_ERRORS) -> Config:
+    return Config.unsafe_from_path(DEFAULT_PATH, encoding=encoding, errors=errors)
 
 
-def ensure_config(encoding: str = DEFAULT_ENCODING, errors: str = DEFAULT_ERRORS) -> None:
-    if not PATH.exists():
-        PATH.parent.mkdir(parents=True, exist_ok=True)
-
-        PATH.write_text(DEFAULT_PATH.read_text(encoding, errors), encoding, errors)
-
-
-ensure_config()
+DEFAULT_CONFIG = get_default_config()
 
 
 def get_config(encoding: str = DEFAULT_ENCODING, errors: str = DEFAULT_ERRORS) -> Config:
-    return Config.from_path(PATH)
+    return Config.from_path(PATH, encoding=encoding, errors=errors)

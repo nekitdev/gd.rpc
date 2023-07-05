@@ -8,9 +8,16 @@ __author__ = "nekitdev"
 __license__ = "MIT"
 __version__ = "1.0.0"
 
-from gd.rpc.config import CONFIG_NAME, DEFAULT_CONFIG, GD_NAME, NAME, Config, ConfigData, get_config
+from gd.rpc.config import DEFAULT_CONFIG, Config, ConfigData, get_config, get_default_config
 from gd.rpc.main import rpc
 
 __all__ = (
-    "DEFAULT_CONFIG", "CONFIG_NAME", "GD_NAME", "NAME", "Config", "ConfigData", "get_config", "rpc"
+    # config
+    "DEFAULT_CONFIG",
+    "Config",
+    "ConfigData",
+    "get_config",
+    "get_default_config",
+    # main
+    "rpc",
 )

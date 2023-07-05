@@ -56,7 +56,7 @@ plugins:
 
           import:
             - https://docs.python.org/3/objects.inv
-            - https://nekitdev.github.io/gd.py/objects.inv
+            - https://nekitdev.github.io/typing-aliases/objects.inv
 
 markdown_extensions:
   - pymdownx.highlight

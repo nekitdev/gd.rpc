@@ -1,6 +1,6 @@
-# `gd.rpc`
-
 ![Image]
+
+# `gd.rpc`
 
 [![License][License Badge]][License]
 [![Version][Version Badge]][Package]
